@@ -12,9 +12,9 @@ class Program
   {
     Console.WriteLine("Enter 2 numbers to divide");
     Console.Write("Enter a number: ");
-    string input1 = Console.ReadLine();
+    string input1 = Console.ReadLine() ?? "";
     Console.Write("Enter another number: ");
-    string input2 = Console.ReadLine();
+    string input2 = Console.ReadLine() ?? "";
 
     try
     {
@@ -28,6 +28,10 @@ class Program
     catch (FormatException)
     {
       Console.WriteLine("Please only enter numbers.");
+    }
+    catch (OverflowException)
+    {
+      Console.WriteLine("Resulting number is bigger than an int32.");
     }
     catch (Exception ex)
     {
